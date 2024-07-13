@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style = {{fontWeight: 'bold'}}>Open up App.tsx to start working on your app!</Text>
-      <Text> I love when I can sleep all day</Text>
+      <Text>I should have been at SkyFest, what am I doing? TT</Text>
       <StatusBar style="auto" />
     </View>
   );
