@@ -30,12 +30,14 @@ const ProfileScreen = () => {
                         <Button
                             title="Change Name"
                             onPress={() => handleChangeName()}
+                            color={'#69b4c2'}
 
                         />
                         <Text></Text>
                         <Button
                             title="Change Image"
                             onPress={() => handleChangeImg()}
+                            color={'#69b4c2'}
 
                         />
                     </View>
