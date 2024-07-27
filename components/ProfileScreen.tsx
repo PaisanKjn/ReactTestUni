@@ -4,10 +4,10 @@ import styles from '../styles/styles';
 import { useState } from 'react';
 
 const ProfileScreen = () => {
-    const profieImage = require("../assets/pfp1.jpg");
+    const profileImage = require("../assets/pfp1.jpg");
     const profileImage2 = require("../assets/pfp2.jpg");
     const [name, setName] = useState("Paisan Kiatjanon");
-    const [img, setImg] = useState(profieImage);
+    const [img, setImg] = useState(profileImage);
 
     const handleChangeName = () => {
         setName("Tanakarn Kiatjanon");
