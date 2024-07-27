@@ -1,33 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
-import AppFooter from './components/AppFooter';
-import AppHeader from './components/AppHeader';
-import Content from './components/Content';
+import { View, Text } from 'react-native'
+import React from 'react'
+import ProfileScreen from './components/ProfileScreen'
 
-export default function App(): React.JSX.Element {
-
-  const onClickMe = () => {
-    Alert.alert("Hi", "Hello React.js");
-  }
-  const users = [
-    { id: 1001, name: 'John' },
-    { id: 1002, name: 'Nick' },
-  ]
-
+const App = (): React.JSX.Element => {
   return (
-    <View style = {styles.container}>
-      <AppHeader title = "This is a Header"/>
-      <Content/>
-      <AppFooter />
+    <View style = {{flex:1, backgroundColor: "#121212"}}>
+      <ProfileScreen/>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#eee',
-    
-    justifyContent: 'center',
-  },
-});
+export default App
