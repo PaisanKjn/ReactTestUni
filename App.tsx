@@ -1,51 +1,45 @@
-import { StyleSheet, Text, View, Button, Alert, TextInput } from "react-native";
-import AppFooter from "./components/AppFooter";
-import AppHeader from "./components/AppHeader";
-import Content from "./components/Content";
-import { stylesPractice } from "./styles/styles";
-import { useEffect, useState } from "react";
+import { View, Text, TextInput, Button, Alert } from 'react-native'
+import React from 'react'
+import ProfileScreen from './components/ProfileScreen'
+import { stylesLogin } from './styles/styles'
+import { useState } from 'react'
 
-export default function App(): React.JSX.Element {
-  const [fullname, setFullname] = useState("");
-  const [message, setMessage] = useState("Message from App.tsx");
-  const [footerMessage, setFooterMessage] = useState(
-    "Thai-Nichi-Institute of Technology"
-  );
+const App = () => {
 
-  useEffect(() => {
-    console.log("Component has mounted");
-  }, []);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
-  // This runs whenever the fullname changes
-  useEffect(() => {
-    console.log(` Fullname has changed to: ${fullname}`);
-  }, [fullname]);
-
-  const handleButtonClick = () => {
-    Alert.alert(`Hello, Input your fullname: ${fullname}`);
+  const onButtonClick = () => {
+    if(name === '') {
+      Alert.alert("Please Enter Name");
+    } else if (email === '') {
+      Alert.alert("Please Enter Email");
+    } else {
+      Alert.alert("Success");
+    }
   }
-
   return (
-    <View style={styles.container}>
-      <AppHeader fullname={fullname} message={message} />
-      {/* <Content message={message} fullname={fullname} /> */}
-      <Content message={message} onButtonClick = {handleButtonClick} /> 
-      
+    <View>
+      <ProfileScreen/>
+
+      <View style={[stylesLogin.container, {}]}>
       <TextInput
-        style={stylesPractice.input}
-        placeholder="Enter your fullname"
-        value={fullname}
-        onChangeText={setFullname}
+        style={stylesLogin.input}
+        placeholder="Enter Name"
+        value={name}
+        onChangeText={setName}
       />
-      <AppFooter footerMessage={footerMessage} />
+      <TextInput
+        style={stylesLogin.input}
+        placeholder="Enter Email"
+        value={email}
+        onChangeText={setEmail}
+      />
+       <Button title="Submit" 
+      onPress={onButtonClick}/>
+      </View>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#eee",
-    justifyContent: "flex-start"
-  },
-});
+export default App
