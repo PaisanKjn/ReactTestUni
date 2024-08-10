@@ -10,7 +10,7 @@ const ProfileScreen = () => {
   const [img, setImg] = useState(profileImage);
 
   const handleChangeName = () => {
-    setName("Tanakarn Kiatjanon");
+    name == "Tanakarn Kiatjanon"?setName("Paisan Kiatjanon"):setName("Tanakarn Kiatjanon");
   };
   const handleChangeImg = () => {
     setImg(profileImage2);

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   profileName: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#00008b",
+    color: "#00308b",
   },
 });
  
