@@ -1,11 +1,13 @@
 import { View } from "react-native";
 import React from "react";
-import Login from "./components/Login";
+import FlatListExample from "./components/FlatListExample"
+import FlatListBackEnd from "./components/FlatListBackEnd";
 
 const App = () => {
   return (
     <View>
-      <Login />
+      {/* <FlatListExample/> */}
+      <FlatListBackEnd/>
     </View>
   );
 };

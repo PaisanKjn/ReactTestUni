@@ -18,7 +18,7 @@ const Login = (): React.JSX.Element => {
     // /S+ means the same thing, just after .
     // say if you replace \S+ with xxx it might be easier to understand >> xxx@xxx.xxx >> email pattern!
     const recheckEmail = /\S+@\S+\.\S+/;
-    return recheckEmail.test(email); // function exclusively to js and ts
+    return recheckEmail.test(email); // a function exclusively to js and ts
 
   }
 

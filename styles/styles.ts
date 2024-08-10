@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
- 
+
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
@@ -28,22 +28,22 @@ const styles = StyleSheet.create({
     color: "#00308b",
   },
 });
- 
+
 const stylesPractice = StyleSheet.create({
   container: {
-   // flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
     backgroundColor: "#ffffff",
- 
+
   },
   header: {
     backgroundColor: "#AEC6CF",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",
-    marginTop:100
+    marginTop: 100
   },
   headerText: {
     fontSize: 20,
@@ -70,7 +70,7 @@ const stylesPractice = StyleSheet.create({
     color: "#333",
   },
   content: {
- //   flex: 1,
+    //   flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -86,12 +86,12 @@ const stylesPractice = StyleSheet.create({
     paddingHorizontal: 8,
     width: "80%",
     borderRadius: 8,
-    marginLeft:50
+    marginLeft: 50
   },
 });
 
 const stylesLogin = StyleSheet.create({
-    container: {
+  container: {
     justifyContent: "center",
     padding: 20,
     marginTop: 50,
@@ -100,8 +100,8 @@ const stylesLogin = StyleSheet.create({
     borderRadius: 10, // เพิ่มความมนให้กบัขอบคอนเทนเนอร์
     elevation: 3, // เพิ่มเงาให้กบัคอนเทนเนอร์(เฉพาะ Android)
     //width: '100%', // ต้งัความกวา้งของ container ให้เต็มหน้าจอ
-    },
-    input: {
+  },
+  input: {
     height: 45, // เพิ่มความสูงของ TextInput
     borderColor: "gray", // เปลี่ยนสีขอบเป็นสีเทาอ่อน
     borderWidth: 1,
@@ -109,7 +109,9 @@ const stylesLogin = StyleSheet.create({
     marginBottom: 15, // เพิ่มระยะห่างดา้นล่างระหวา่ ง TextInput
     paddingHorizontal: 15, // เพิ่มระยะห่างภายใน TextInput
     backgroundColor: "#f9f9f9", // ต้งัค่าสีพ้ืนหลงัของ TextInput
-    },
-    });
- 
-export { styles, stylesPractice, stylesLogin };
+  },
+});
+
+
+
+export { styles, stylesPractice, stylesLogin};
