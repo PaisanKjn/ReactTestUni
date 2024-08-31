@@ -6,32 +6,46 @@ interface WeatherState {
     data: any;
     loading: boolean;
     error: string | null;
+    currentDate: Date | null;
 
 }
 
-const WeatherLondon = ():React.JSX.Element => {
+const WeatherBangkok = ():React.JSX.Element => {
     const [state,setState] = useState<WeatherState>({
         data: null,
         loading: true,
-        error: null
+        error: null,
+        currentDate: null
     });
+
+    const formatDate = (date:Date|null): string => {
+        if(!date) return '';
+        const options: Intl.DateTimeFormatOptions = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        };
+        return date.toLocaleDateString('th-TH', options);
+    }
 
     const fetchWeatherData = async () => {
         const API_KEY = 'd78aaab2d84844433d115114fb3bb62e';
-        const URL = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${API_KEY}&units=metric`;
+        const URL = `https://api.openweathermap.org/data/2.5/weather?q=Bangkok&appid=${API_KEY}&units=metric`;
 
         try {
             const response = await axios.get(URL);
             setState({
                 data: response.data,
                 loading: false,
-                error: null
+                error: null,
+                currentDate: new Date()
             });
         } catch(error){
             setState({
                 data: null,
                 loading: false,
-                error: 'Failed to fetch weather data'
+                error: 'Failed to fetch weather data',
+                currentDate: null
             });
         }
     }
@@ -57,6 +71,7 @@ const WeatherLondon = ():React.JSX.Element => {
 
   return (
     <View style = {styles.container}>
+     <Text style = {styles.dateText}>{formatDate(state.currentDate)}</Text>
      <Text style = {styles.cityName}>{state.data.name}</Text>
      <Text style = {styles.temp}>{state.data.main.temp}°C</Text>
      <Text style = {styles.weatherMain}>{state.data.weather[0].main}</Text>
@@ -82,14 +97,18 @@ const WeatherLondon = ():React.JSX.Element => {
   );
 };
 
-export default WeatherLondon;
+export default WeatherBangkok;
 const styles = StyleSheet.create({
+    dateText: {
+        fontSize: 18,
+        color: '#ec3faa',
+    },
     container: {
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
         marginTop: 40,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#205a41',
     },
     centeredContainer: {
         justifyContent: 'center',
@@ -103,25 +122,25 @@ const styles = StyleSheet.create({
         fontSize: 36,
         fontWeight: 'bold',
         marginBottom: 8,
-        color: '#333',
+        color: '#67a33b',
     },
     temp: {
         fontSize: 64,
         fontWeight: 'bold',
         marginBottom: 8,
-        color: '#f9cd47',
+        color: '#f8df52',
     },
     weatherMain: {
         fontSize: 28,
         fontWeight: 'bold',
         marginBottom: 4,
-        color: '#333',
+        color: '#00c08b',
     },
     weatherDescription: {
         fontSize: 20,
         fontStyle: 'italic',
         marginBottom: 16,
-        color: '#666',
+        color: '#00c08b',
     },
     details: {
         marginTop: 16,
@@ -145,10 +164,10 @@ const styles = StyleSheet.create({
     detailKey: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: '#333',
+        color: '#fff',
     },
     detailValue: {
         fontSize: 18,
-        color: '#333',
+        color: '#eee',
     },
  });
