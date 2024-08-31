@@ -1,13 +1,21 @@
 import { View } from "react-native";
 import React from "react";
-import ModalExample from "./TypescriptDemo/ModalExample";
-import WeatherApp from "./components/WeatherApp";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import HomeScreen from "./screens/HomeScreen";
+import AboutScreen from "./screens/AboutScreen";
+import CreatePostScreen from "./screens/CreatePostScreen";
 
-const App = () => {
+const App = ():React.JSX.Element => {
+  const HomeStack = createNativeStackNavigator();
   return (
-    <View>
-      <WeatherApp/>
-    </View>
+    <NavigationContainer>
+      <HomeStack.Navigator initialRouteName="Home">
+        <HomeStack.Screen name = 'Home' component = {HomeScreen}/>
+        <HomeStack.Screen name = 'About' component={AboutScreen}/>
+        <HomeStack.Screen name = "CreatePost" component = {CreatePostScreen}/>
+      </HomeStack.Navigator>
+    </NavigationContainer>
   );
 };
 
