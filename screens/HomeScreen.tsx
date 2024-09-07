@@ -29,7 +29,8 @@ const HomeScreen = (): React.JSX.Element => {
           <Item
             title="menu"
             iconName="menu"
-            onPress={() => Alert.alert("Alert","Hello React Native")}
+            onPress={() => navigation.openDrawer()
+            }
           />
         </HeaderButtons>
       ), 
@@ -56,9 +57,9 @@ const HomeScreen = (): React.JSX.Element => {
   };
   return (
     <View style={styles.container}>
-      <MaterialIcon name="home" size={40} color="#ec3faa" />
+      <MaterialIcon name="home" size={40} color="#EB3DA9" />
       <Text style={styles.header}>HomeScreen</Text>
-      <Button color={"#67a33b"} title="About Us" onPress={goToAbout} />
+      <Button color={"#66A33A"} title="About Us" onPress={goToAbout} />
     </View>
   );
 };
