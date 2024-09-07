@@ -51,7 +51,8 @@ const App = (): React.JSX.Element => {
   return (
     <HeaderButtonsProvider stackType="native">
       <NavigationContainer>
-        <Drawer.Navigator>
+        <Drawer.Navigator
+        screenOptions={{headerShown:false}}>
           <Drawer.Screen name = "HomeStack" component={HomeStackScreen}/>
         </Drawer.Navigator>
       </NavigationContainer>
