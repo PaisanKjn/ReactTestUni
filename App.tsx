@@ -9,8 +9,9 @@ import AboutScreen from "./screens/AboutScreen";
 import CreatePostScreen from "./screens/CreatePostScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import MenuScreen from "./screens/MenuScreen";
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import ProductScreen from "./screens/ProductScreen";
+import DetailScreen from "./screens/DetailScreen";
 
 const HomeStack = createNativeStackNavigator();
 const ProductStack = createNativeStackNavigator();
@@ -55,28 +56,26 @@ function ProductStackScreen() {
         headerTitleStyle: { fontWeight: "bold" },
       }}
     >
-      <ProductStack.Screen
-        name="Products"
-        component={ProductScreen}
-      />
+      <ProductStack.Screen name="Products" component={ProductScreen} />
+      <ProductStack.Screen name="Details" component={DetailScreen} />
     </ProductStack.Navigator>
   );
 }
 const App = (): React.JSX.Element => {
   return (
-   <SafeAreaProvider>
-     <HeaderButtonsProvider stackType="native">
-      <NavigationContainer>
-        <Drawer.Navigator
-          screenOptions={{ headerShown: false }}
-          drawerContent={props => <MenuScreen {...props} />}
-        >
-          <Drawer.Screen name="HomeStack" component={HomeStackScreen} />
-          <Drawer.Screen name="ProductStack" component={ProductStackScreen} />
-        </Drawer.Navigator>
-      </NavigationContainer>
-    </HeaderButtonsProvider>
-   </SafeAreaProvider>
+    <SafeAreaProvider>
+      <HeaderButtonsProvider stackType="native">
+        <NavigationContainer>
+          <Drawer.Navigator
+            screenOptions={{ headerShown: false }}
+            drawerContent={(props) => <MenuScreen {...props} />}
+          >
+            <Drawer.Screen name="HomeStack" component={HomeStackScreen} />
+            <Drawer.Screen name="ProductStack" component={ProductStackScreen} />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </HeaderButtonsProvider>
+    </SafeAreaProvider>
   );
 };
 
